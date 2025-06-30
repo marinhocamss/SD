@@ -1,3 +1,12 @@
+--Esse módulo serve como interface limpa com o teclado PS/2. Ele faz o seguinte:
+
+--1. Usa o módulo ps2_rx.vhd para receber dados do teclado.
+--2. Espera o código de “break” (F0 em hexadecimal = "11110000") antes de registrar a tecla — isso significa que ele só armazena a tecla liberada, não pressionada.
+--3. Guarda o código da tecla liberada em uma FIFO.
+--4. Fornece o código da tecla mais recente via KEY_CODE, e informa se o buffer está vazio com KB_BUF_EMPTY.
+
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all
